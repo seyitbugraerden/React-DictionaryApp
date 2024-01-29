@@ -2,6 +2,7 @@ import axios from "axios";
 import { Panel } from "primereact/panel";
 import { useState } from "react";
 import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
             onChange={(e) => setWord(e.target.value)}
           />
           <label htmlFor="username">Your Word</label>
+
+          <Button label="Submit" />
         </span>
       </Panel>
     </>
