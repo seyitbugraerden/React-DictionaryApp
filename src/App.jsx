@@ -8,12 +8,15 @@ import "./App.css";
 function App() {
   const [word, setWord] = useState("");
   const [wordResponse, setWordResponse] = useState([]);
-  axios
-    .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-    .then((response) => {
-      setWordResponse(response.data);
-      console.log(wordResponse);
-    });
+
+  const handleSubmit = () => {
+    axios
+      .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+      .then((response) => {
+        setWordResponse(response.data);
+        console.log(wordResponse);
+      });
+  };
 
   return (
     <>
@@ -26,7 +29,7 @@ function App() {
           />
           <label htmlFor="username">Your Word</label>
 
-          <Button label="Submit" />
+          <Button label="Submit" onClick={handleSubmit} />
         </span>
       </Panel>
     </>
