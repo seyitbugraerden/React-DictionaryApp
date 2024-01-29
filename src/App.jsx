@@ -1,26 +1,30 @@
 import axios from "axios";
 import { Panel } from "primereact/panel";
+import { useState } from "react";
+import { InputText } from "primereact/inputtext";
 import "./App.css";
 
 function App() {
+  const [word, setWord] = useState("");
+  const [wordResponse, setWordResponse] = useState([]);
   axios
-    .get("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
+    .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((response) => {
-      console.log(response.data);
+      setWordResponse(response.data);
+      console.log(wordResponse);
     });
 
   return (
     <>
       <Panel header="English Dictionary">
-        <p className="m-0">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <span className="p-float-label">
+          <InputText
+            id="username"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
+          <label htmlFor="username">Your Word</label>
+        </span>
       </Panel>
     </>
   );
