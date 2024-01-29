@@ -15,6 +15,7 @@ function App() {
         .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
         .then((response) => {
           setWordResponse(response.data);
+          console.log(response.data);
           setWord("");
         });
     }
@@ -34,9 +35,25 @@ function App() {
           <Button label="Search" onClick={handleSubmit} />
         </span>
         {wordResponse.map((item, index) => (
-          <p key={index}>
-            {item.word} - {item.origin}
-          </p>
+          <div key={index}>
+            <h3>
+              Your Word : " <i className="text-muted">{item.word}</i> "
+            </h3>
+            <h3>
+              Phonetic : " <i className="text-muted">{item.phonetic}</i> "
+            </h3>
+            {item.meanings.map((element, index) => (
+              <h3 key={index}>
+                Part Of Spech : "{" "}
+                <i className="text-muted">{element.partOfSpeech}</i> "
+              </h3>
+            ))}
+            <audio
+              id="track1"
+              src={item.phonetics[1].audio}
+              controls="1"
+            ></audio>
+          </div>
         ))}
       </Panel>
     </>
