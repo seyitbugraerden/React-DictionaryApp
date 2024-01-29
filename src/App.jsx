@@ -10,12 +10,15 @@ function App() {
   const [wordResponse, setWordResponse] = useState([]);
 
   const handleSubmit = () => {
-    axios
-      .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-      .then((response) => {
-        setWordResponse(response.data);
-        console.log(wordResponse);
-      });
+    if (wordResponse.length !== "") {
+      axios
+        .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        .then((response) => {
+          setWordResponse(response.data);
+          setWord("");
+          console.log(wordResponse);
+        });
+    }
   };
 
   return (
@@ -29,7 +32,7 @@ function App() {
           />
           <label htmlFor="username">Your Word</label>
 
-          <Button label="Submit" onClick={handleSubmit} />
+          <Button label="Search" onClick={handleSubmit} />
         </span>
       </Panel>
     </>
