@@ -16,7 +16,6 @@ function App() {
         .then((response) => {
           setWordResponse(response.data);
           setWord("");
-          console.log(wordResponse);
         });
     }
   };
@@ -34,6 +33,11 @@ function App() {
 
           <Button label="Search" onClick={handleSubmit} />
         </span>
+        {wordResponse.map((item, index) => (
+          <p key={index}>
+            {item.word} - {item.origin}
+          </p>
+        ))}
       </Panel>
     </>
   );
