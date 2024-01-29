@@ -34,27 +34,36 @@ function App() {
 
           <Button label="Search" onClick={handleSubmit} />
         </span>
+        <h3 style={{ display: isValid ? "block" : "none" }}>
+          Your Word : " <i className="text-muted">{word}</i> "
+        </h3>
         {wordResponse.map((item, index) => (
           <div key={index}>
             <h3>
-              Your Word : " <i className="text-muted">{item.word}</i> "
+              Phonetic:{" "}
+              <i className="text-muted">
+                {item.phonetics.find(
+                  (phonetic) => phonetic.text && phonetic.text !== ""
+                )?.text || "N/A"}
+              </i>
             </h3>
-            <h3>
-              Phonetic : " <i className="text-muted">{item.phonetic}</i> "
-            </h3>
-            {item.meanings.map((element, index) => (
-              <h3 key={index}>
-                Part Of Spech : "{" "}
-                <i className="text-muted">{element.partOfSpeech}</i> "
-              </h3>
-            ))}
-            <audio
-              id="track1"
-              src={item.phonetics[1].audio}
-              controls="1"
-            ></audio>
+
+            <div
+              className="menu"
+              style={{
+                gridTemplateColumns: `repeat(${item.meanings.length},1fr)`,
+              }}
+            >
+              {item.meanings.map((element, index) => (
+                <h3 key={index}>
+                  Part Of Spech : "{" "}
+                  <i className="text-muted">{element.partOfSpeech}</i> "
+                </h3>
+              ))}
+            </div>
           </div>
         ))}
+        ;
       </Panel>
     </>
   );
