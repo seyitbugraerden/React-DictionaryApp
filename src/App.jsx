@@ -10,6 +10,7 @@ function App() {
   const [wordResponse, setWordResponse] = useState([]);
 
   const handleSubmit = () => {
+    asdasd;
     if (wordResponse.length !== "") {
       axios
         .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
