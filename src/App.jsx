@@ -10,7 +10,6 @@ function App() {
   const [wordResponse, setWordResponse] = useState([]);
 
   const handleSubmit = () => {
-    Lorem, ipsum.
     if (wordResponse.length !== "") {
       axios
         .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
