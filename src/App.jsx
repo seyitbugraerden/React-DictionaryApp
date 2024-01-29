@@ -31,7 +31,6 @@ function App() {
             onChange={(e) => setWord(e.target.value)}
           />
           <label htmlFor="username">Your Word</label>
-
           <Button label="Search" onClick={handleSubmit} />
         </span>
       </Panel>
