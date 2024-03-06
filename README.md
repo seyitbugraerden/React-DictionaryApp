@@ -1,8 +1,7 @@
-# React + Vite
+<h2>React | PrimeReact | Axios | Ninja API | Dictionary App</h2>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![FireShot Capture 023 - Dictionary App - react-dictionary-app-xi vercel app](https://github.com/seyitbugraerden/React-DictionaryApp/assets/154025499/e0dfc373-97d9-4f38-a071-8455de6f8a43)
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![FireShot Capture 024 - Dictionary App - react-dictionary-app-xi vercel app](https://github.com/seyitbugraerden/React-DictionaryApp/assets/154025499/84a56b84-bb29-4202-80df-b158752cfa0f)
+
